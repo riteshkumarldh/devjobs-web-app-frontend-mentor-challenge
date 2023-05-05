@@ -1,0 +1,55 @@
+header {
+  height: 160px;
+  background-image: url("../../assets/mobile/bg-pattern-header.svg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  .container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 4.2rem;
+
+    .dark-light {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+
+      .checkbox {
+        height: 27px;
+        width: 50px;
+        border-radius: 50px;
+        background-color: white;
+        cursor: pointer;
+        position: relative;
+        transition: 0.25s;
+
+        &:hover::after {
+          background-color: var(--color-light-violet);
+        }
+
+        &:active {
+          transform: scale(0.95);
+        }
+
+        &::after {
+          content: "";
+          position: absolute;
+          top: 50%;
+          left: 4px;
+          transform: translateY(-50%);
+          height: 15px;
+          width: 15px;
+          border-radius: 50%;
+          background-color: var(--color-violet);
+          transition: 0.25s;
+        }
+
+        &.active::after {
+          left: calc(50px - 20px);
+        }
+      }
+    }
+  }
+}
