@@ -5,6 +5,11 @@ header {
   background-repeat: no-repeat;
   background-size: cover;
 
+  @media (min-width: 768px) {
+    background-image: url("../../assets/desktop/bg-pattern-header.svg");
+    border-radius: 0 0 0 10rem;
+  }
+
   .container {
     display: flex;
     align-items: center;

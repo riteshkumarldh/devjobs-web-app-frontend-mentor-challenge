@@ -1,15 +1,20 @@
 import { createContext, useContext, useEffect, useState } from "react";
 
-// import dataFile from "assets/data.json";
-
 // creating context
 export const AppContext = createContext(null);
 
 // context provider
 const ContextProvider = ({ children }) => {
-  const [theme, setTheme] = useState(false);
-  const [data, setData] = useState([]);
-  const [singleJob, setSingleJob] = useState([]);
+  const [theme, setTheme] = useState(
+    () => JSON.parse(localStorage.getItem("theme")) || false
+  );
+  const [data, setData] = useState(
+    () => JSON.parse(localStorage.getItem("allJobs")) || []
+  );
+  const [singleJob, setSingleJob] = useState(
+    () => JSON.parse(localStorage.getItem("jobDetails")) || []
+  );
+  const [searchedResult, setSearchedResult] = useState([]);
 
   const fetchData = async () => {
     try {
@@ -29,7 +34,20 @@ const ContextProvider = ({ children }) => {
 
   useEffect(() => {
     fetchData();
+  }, [data]);
+
+  useEffect(() => {
+    localStorage.setItem("allJobs", JSON.stringify(data));
+    setSearchedResult(data);
   }, []);
+
+  useEffect(() => {
+    localStorage.setItem("jobDetails", JSON.stringify(singleJob));
+  }, [singleJob]);
+
+  useEffect(() => {
+    localStorage.setItem("theme", JSON.stringify(theme));
+  }, [theme]);
 
   const getSingleJobDetails = (id) => {
     const singleJob = data.filter((job) => {
@@ -43,8 +61,11 @@ const ContextProvider = ({ children }) => {
     theme,
     setTheme,
     data,
+    setData,
     singleJob,
     getSingleJobDetails,
+    searchedResult,
+    setSearchedResult,
   };
 
   return (

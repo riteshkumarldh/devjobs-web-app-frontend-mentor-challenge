@@ -52,7 +52,7 @@
         display: none;
 
         input {
-          color: white;
+          color: var(--font-color);
         }
 
         @include media() {
@@ -144,8 +144,12 @@
               border-radius: 0.5rem;
               display: grid;
               place-items: center;
-              background-color: bisque;
+              background-color: var(--btn2-bg);
               transition: 0.3s;
+
+              &:hover {
+                background-color: var(--btn2-hover-bg);
+              }
 
               &.checked {
                 background-color: var(--color-violet);

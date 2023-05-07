@@ -39,10 +39,10 @@ export default function JobDetails() {
                     Apply Now
                   </a>
                 </div>
-                <p>{job.description}</p>
-                <div>
+                <p className="description">{job.description}</p>
+                <div className="requirements">
                   <h3>Requirements</h3>
-                  <p>{job.requirements.content}</p>
+                  <p className="req-content">{job.requirements.content}</p>
                   {job.requirements.items.map((item, i) => {
                     return (
                       <p className="req" key={i}>
@@ -52,9 +52,9 @@ export default function JobDetails() {
                     );
                   })}
                 </div>
-                <div>
+                <div className="roles">
                   <h3>What You Will Do</h3>
-                  <p>{job.role.content}</p>
+                  <p className="role-content">{job.role.content}</p>
                   {job.role.items.map((item, i) => {
                     return (
                       <p className="role" key={i}>
@@ -66,7 +66,7 @@ export default function JobDetails() {
                 </div>
               </div>
             </div>
-            {/* <div className="bottom-details">
+            <div className="bottom-details">
               <div className="container2">
                 <div>
                   <h3>{job.position}</h3>
@@ -74,7 +74,7 @@ export default function JobDetails() {
                 </div>
                 <button className="primary-btn">Apply Now</button>
               </div>
-            </div> */}
+            </div>
           </div>
         );
       })}

@@ -1,13 +1,15 @@
 // scss
 import "./jobsListings.scss";
+
 // useContext
 import { useAppContext } from "../../context/appContext";
+
 // for navigating other page
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 
 export default function JobsListings() {
-  const { data, getSingleJobDetails } = useAppContext();
+  const { getSingleJobDetails, searchedResult } = useAppContext();
   const [jobShow, setJobShow] = useState(9);
   const navigate = useNavigate();
 
@@ -23,7 +25,7 @@ export default function JobsListings() {
   return (
     <section className="listings">
       <div>
-        {data.slice(0, jobShow).map((job) => {
+        {searchedResult.slice(0, jobShow).map((job) => {
           return (
             <div key={job.id} className="jobcard">
               <figure
