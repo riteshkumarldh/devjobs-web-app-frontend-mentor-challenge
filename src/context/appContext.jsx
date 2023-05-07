@@ -33,13 +33,12 @@ const ContextProvider = ({ children }) => {
   };
 
   useEffect(() => {
-    fetchData();
-  }, [data]);
+    localStorage.setItem("allJobs", JSON.stringify(data));
+  }, []);
 
   useEffect(() => {
-    localStorage.setItem("allJobs", JSON.stringify(data));
-    setSearchedResult(data);
-  }, []);
+    fetchData();
+  }, [data]);
 
   useEffect(() => {
     localStorage.setItem("jobDetails", JSON.stringify(singleJob));
