@@ -14,7 +14,7 @@ const ContextProvider = ({ children }) => {
   const [singleJob, setSingleJob] = useState(
     () => JSON.parse(localStorage.getItem("jobDetails")) || []
   );
-  const [searchedResult, setSearchedResult] = useState([]);
+  const [searchedResult, setSearchedResult] = useState(data);
 
   const fetchData = async () => {
     try {
