@@ -1,3 +1,7 @@
+// using context
+import { useAppContext } from "../../context/appContext";
+
 export default function JobDetails() {
-  return <div>JobDetails</div>;
+  const { singleJob } = useAppContext();
+  return <div>{singleJob[0].position}</div>;
 }

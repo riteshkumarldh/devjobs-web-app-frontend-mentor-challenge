@@ -11,6 +11,7 @@ import "./searchForm.scss";
 
 export default function SearchForm() {
   const [mobileFilter, setMobileFilter] = useState(false);
+  const [checked, setChecked] = useState(false);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -43,8 +44,11 @@ export default function SearchForm() {
               <input type="text" placeholder="Filter by location..." />
             </div>
             <div className="searched">
-              <div className="full-time">
-                <div>
+              <div
+                className="full-time"
+                onClick={() => setChecked((prev) => !prev)}
+              >
+                <div className={`check ${checked ? "checked" : null}`}>
                   <img src={checkboxIcon} alt="checkboxIcon" />
                 </div>
                 <p>Full Time</p>

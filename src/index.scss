@@ -71,3 +71,22 @@ input {
 .container {
   padding-inline: 2rem;
 }
+
+.primary-btn {
+  width: max-content;
+  background-color: var(--color-violet);
+  color: white;
+  border: none;
+  outline: none;
+  padding: 2rem 5rem;
+  font-size: 1.8rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  transition: 0.25s;
+
+  &:hover {
+    background-color: var(--color-light-violet);
+  }
+}
