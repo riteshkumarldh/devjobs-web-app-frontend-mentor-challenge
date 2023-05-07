@@ -4,24 +4,31 @@
   & > div {
     display: grid;
     grid-template-columns: 1fr;
-    gap: 5rem;
+    row-gap: 8rem;
+    column-gap: 5rem;
 
     @media (min-width: 768px) {
       grid-template-columns: 1fr 1fr;
+    }
+
+    @media (min-width: 1120px) {
+      grid-template-columns: 1fr 1fr 1fr;
     }
 
     .jobcard {
       display: flex;
       flex-direction: column;
       background-color: var(--card-bg);
-      padding: 0 4rem 2rem;
+      padding: 0 4rem 3rem;
+      border-radius: 1rem;
+      animation: zoom 300ms ease-in forwards;
 
       figure {
-        height: 6rem;
-        width: 6rem;
+        height: 5rem;
+        width: 5rem;
         padding: 1rem;
         margin-top: -2.5rem;
-        border-radius: 0.5rem;
+        border-radius: 1.2rem;
         display: grid;
         place-items: center;
 
@@ -30,6 +37,50 @@
           width: 100%;
           object-fit: contain;
         }
+      }
+
+      .job-details {
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+
+        & > div {
+          display: flex;
+          align-items: center;
+          gap: 2rem;
+          color: var(--color-dark-grey);
+          margin-top: 3rem;
+
+          span {
+            display: block;
+            min-height: 5px;
+            min-width: 5px;
+            background-color: var(--color-grey);
+            border-radius: 50%;
+            align-self: center;
+          }
+        }
+
+        & > h2 {
+          font-size: 2rem;
+          color: var(--text-color);
+          cursor: pointer;
+          transition: 0.25s;
+
+          &:hover {
+            color: var(--color-dark-grey);
+          }
+        }
+
+        & > p {
+          color: var(--color-dark-grey);
+          margin-bottom: 4rem;
+        }
+      }
+
+      & > h4 {
+        color: var(--color-violet);
+        font-size: 1.5rem;
       }
     }
   }
@@ -44,5 +95,14 @@
       background-color: var(--color-light-violet);
       cursor: not-allowed;
     }
+  }
+}
+
+@keyframes zoom {
+  0% {
+    transform: scale(0.5);
+  }
+  100% {
+    transform: none;
   }
 }

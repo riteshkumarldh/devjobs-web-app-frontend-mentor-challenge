@@ -8,12 +8,12 @@ import { useState } from "react";
 
 export default function JobsListings() {
   const { data, getSingleJobDetails } = useAppContext();
-  const [jobShow, setJobShow] = useState(8);
+  const [jobShow, setJobShow] = useState(9);
   const navigate = useNavigate();
 
   const handleJobDetails = (id) => {
     getSingleJobDetails(id);
-    navigate(`/job/${id}`);
+    navigate(`/${id}`);
   };
 
   const handleShowAllJobs = () => {
@@ -50,7 +50,7 @@ export default function JobsListings() {
         className={`primary-btn ${jobShow === 15 ? "blocked" : null}`}
         onClick={handleShowAllJobs}
       >
-        More
+        Load More
       </button>
     </section>
   );

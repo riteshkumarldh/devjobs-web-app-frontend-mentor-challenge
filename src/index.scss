@@ -13,12 +13,18 @@
   --body-bg: var(--color-light-grey);
   --card-bg: var(--color-white);
   --text-color: var(--color-very-dark-blue);
+  --btn2-bg: #eeeffc;
+  --btn2-color: var(--color-violet);
+  --btn2-hover-bg: #c5c9f4;
 }
 
 .dark {
   --body-bg: var(--color-midnight);
   --card-bg: var(--color-very-dark-blue);
   --text-color: var(--color-white);
+  --btn2-bg: #303642;
+  --btn2-color: var(--color-white);
+  --btn2-hover-bg: #696e76;
 }
 
 // my typography mixin
@@ -70,6 +76,22 @@ input {
 
 .container {
   padding-inline: 2rem;
+
+  @media (min-width: 768px) {
+    max-width: 740px;
+    margin-inline: auto;
+    width: 100%;
+  }
+  @media (min-width: 1020px) {
+    max-width: 980px;
+    margin-inline: auto;
+    width: 100%;
+  }
+  @media (min-width: 120px) {
+    max-width: 1160px;
+    margin-inline: auto;
+    width: 100%;
+  }
 }
 
 .primary-btn {
@@ -78,10 +100,10 @@ input {
   color: white;
   border: none;
   outline: none;
-  padding: 2rem 5rem;
-  font-size: 1.8rem;
-  font-weight: 600;
-  text-transform: uppercase;
+  padding: 1.5rem 4rem;
+  font-size: 1.6rem;
+  font: inherit;
+  font-weight: bold;
   border-radius: 0.5rem;
   cursor: pointer;
   transition: 0.25s;

@@ -20,7 +20,7 @@ export default function App() {
         <Header />
         <Routes>
           <Route path="/" exact element={<Home />} />
-          <Route path="/job/:id" element={<JobDetails />} />
+          <Route path="/:id" element={<JobDetails />} />
           <Route path="*" element={<PageNotFound />} />
         </Routes>
       </BrowserRouter>
