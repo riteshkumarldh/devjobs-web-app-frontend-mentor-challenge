@@ -14,7 +14,7 @@ const ContextProvider = ({ children }) => {
   const [singleJob, setSingleJob] = useState(
     () => JSON.parse(localStorage.getItem("jobDetails")) || []
   );
-  const [searchedResult, setSearchedResult] = useState(data);
+  const [searchedResult, setSearchedResult] = useState([]);
 
   const fetchData = async () => {
     try {
@@ -23,6 +23,7 @@ const ContextProvider = ({ children }) => {
       if (response.ok) {
         const result = await response.json();
         // console.log(result);
+        setSearchedResult(result);
         setData(result);
       } else {
         throw Error;
@@ -38,7 +39,7 @@ const ContextProvider = ({ children }) => {
 
   useEffect(() => {
     fetchData();
-  }, [data]);
+  }, []);
 
   useEffect(() => {
     localStorage.setItem("jobDetails", JSON.stringify(singleJob));
